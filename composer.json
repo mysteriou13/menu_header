@@ -2,7 +2,7 @@
     "name": "massaanthony/menu_header_wordpress",
     "description": "creation et gestion menu header wordpress",
     "type": "project",
-    "license": "GNU General Public License v3.0 or later",
+    "license": "GPL-3.0-or-later",
     "authors": [
         {
             "name": "massa anthony",
