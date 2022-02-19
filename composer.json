@@ -1,0 +1,13 @@
+{
+    "name": "vendor/menu_header",
+    "description": "creation et gestion menu header wordpress",
+    "type": "plugin wordpress",
+    "license": "gplv3",
+    "authors": [
+        {
+            "name": "massa anthony",
+            "email": "mrmassaanthony@gmail.com"
+        }
+    ],
+    "require": {}
+}
