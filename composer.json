@@ -1,7 +1,7 @@
 {
-    "name": "vendor/menu_header",
+    "name": "massaanthony/menu_header_wordpress",
     "description": "creation et gestion menu header wordpress",
-    "type": "plugin wordpress",
+    "type": "project",
     "license": "gplv3",
     "authors": [
         {
