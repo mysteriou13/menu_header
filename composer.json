@@ -9,5 +9,7 @@
             "email": "mrmassaanthony@gmail.com"
         }
     ],
-    "require": {}
+    "require": {
+        "twbs/bootstrap": "^5.1"
+    }
 }
