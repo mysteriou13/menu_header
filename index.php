@@ -3,4 +3,13 @@
 
 <div>
     menu header test
+    <?php 
+
+
+  include("/var/www/html/site_wordpress/wordpress/wp-content/plugins/menu_header/php/sql.php");
+   
+  $t = new sql();
+
+    ?>
+
 </div>
