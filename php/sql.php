@@ -6,7 +6,7 @@ class sql{
 
         include("../../../wp-config.php");
 
-        define( 'db_prefix', $table_prefix );
+        define( 'db_menu', $table_prefix."menu");
 
          $this->create_table_menu();
 
@@ -18,24 +18,32 @@ class sql{
     
       $charset_collate = $wpdb->get_charset_collate();
     
-       $table_name = db_prefix."menu";
+       $table_name = db_menu;
     
       $sql = "
-      CREATE TABLE $table_name (
-        `id` int NOT NULL,
-        `name_link` text NOT NULL,
-        `link` text NOT NULL
-      ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-      
+      CREATE TABLE IF NOT EXISTS `new_wordpress`.$table_name ( `id` INT NOT NULL AUTO_INCREMENT , `link` TEXT NOT NULL , `name` TEXT NOT NULL , PRIMARY KEY (`id`)) ENGINE = InnoDB; 
       
       ";
     
       require_once( ABSPATH . 'wp-admin/includes/upgrade.php' );
       dbDelta( $sql );
     
-    
     }
 
+
+
+function add_el_menu($name_menu,$link_menu){
+
+  global $wpdb;
+
+ $wpdb->insert(db_menu, array(
+     "link" => $name_menu,
+    "name" =>  $link_menu
+     
+  ))
+
+
+}
 
 
 }
