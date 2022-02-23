@@ -11,6 +11,7 @@ class sql{
          $this->create_table_menu();
 
     }
+
     function create_table_menu(){
 
 
@@ -40,10 +41,31 @@ function add_el_menu($name_menu,$link_menu){
      "link" => $name_menu,
     "name" =>  $link_menu
      
-  ))
+ ));
+ }
+
+function affiche_menu(){
+
+global $wpdb;
 
 
-}
+  $liste_menu = $wpdb->get_results("SELECT * FROM ".db_menu);
+
+    echo "<div class = 'd-flex justify-content-around'>";
+
+  foreach ($liste_menu as $row) {
+
+  $page = "./admin.php?page=menu-gestion&menu=".$row->name;
+
+ echo "<div><a href ='".$row->link."'>".$row->name."</a></div>";
+
+  }
+
+  echo "</div>";
+
+  }
+
+
 
 
 }
