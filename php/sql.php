@@ -8,6 +8,9 @@ class sql{
 
         define( 'db_menu', $table_prefix."menu");
 
+        define( 'prefix', $table_prefix);
+
+      
          $this->create_table_menu();
 
     }
@@ -20,9 +23,10 @@ class sql{
       $charset_collate = $wpdb->get_charset_collate();
     
        $table_name = db_menu;
+       $dbname =  DB_NAME;
     
       $sql = "
-      CREATE TABLE IF NOT EXISTS `new_wordpress`.$table_name ( `id` INT NOT NULL AUTO_INCREMENT , `link` TEXT NOT NULL , `name` TEXT NOT NULL , PRIMARY KEY (`id`)) ENGINE = InnoDB; 
+      CREATE TABLE IF NOT EXISTS $dbname ( `id` INT NOT NULL AUTO_INCREMENT , `link` TEXT NOT NULL , `name` TEXT NOT NULL , PRIMARY KEY (`id`)) ENGINE = InnoDB; 
       
       ";
     
@@ -66,6 +70,32 @@ global $wpdb;
   }
 
 
+  function liste_page($type,$data){
+
+    global $wpdb;
+    
+  
+     $post =   prefix."posts";
+    
+     $liste_page = $wpdb->get_results("SELECT $data FROM  $post WHERE post_type = '$type' && post_status = 'publish'");
+    
+    $tab = [];
+    
+    foreach ($liste_page as $row) {
+    
+      
+    $a = $row->$data;
+    
+    array_push($tab, $a);
+    
+    
+    }
+    
+    return $tab;
+    
+    }
+
+      
 
 
 }
