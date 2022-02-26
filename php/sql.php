@@ -10,9 +10,9 @@ class sql{
 
         define( 'prefix', $table_prefix);
 
-      
          $this->create_table_menu();
 
+         $this->select_menu();
     }
 
     function create_table_menu(){
@@ -95,8 +95,42 @@ global $wpdb;
     
     }
 
-      
+      function select_menu(){
 
+        $listepage = $this->liste_page("page","post_title");
+
+        $listeid = $this->liste_page("page","ID");
+
+          $nblistepage = count($listepage)-1;
+
+          $nblisteid = count($listeid)-1;
+
+         
+           echo "<form action = './' method = 'post'>";
+
+          echo '<SELECT name="link_menu" size="1">';
+
+          $nb = -1;
+
+          while($nb <= $nblistepage -1){
+
+            $nb++;
+
+            echo "choisir la page <OPTION value ='".$listeid[$nb]."'>".$listepage[$nb];
+
+          }
+
+          echo '<SELECT>';
+
+         echo 'nom du lien <input type = "text" name = "name_link"> ';    
+            echo " <input type = 'submit'></form>";
+
+            if(isset($_POST['link_menu']) && isset($_POST['name_link'])){
+
+              $this->add_el_menu($_POST['name_link'],$_POST['link_menu']);
+        
+            }
+      }
 
 }
 
