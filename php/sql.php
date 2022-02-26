@@ -110,7 +110,7 @@ global $wpdb;
          
            echo "<form action = './' method = 'post'>";
 
-          echo '<SELECT name="link_menu" size="1">';
+          echo 'choisir la page  <SELECT name="link_menu" size="1">';
 
           $nb = -1;
 
@@ -118,7 +118,7 @@ global $wpdb;
 
             $nb++;
 
-            echo "choisir la page <OPTION value ='".$listeid[$nb]."'>".$listepage[$nb];
+            echo "<OPTION value ='".$listeid[$nb]."'>".$listepage[$nb];
 
           }
 
