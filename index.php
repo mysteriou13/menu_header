@@ -10,8 +10,7 @@
    
   $t = new sql();
 
-
-  $t->select_menu();
+ 
 
 
 

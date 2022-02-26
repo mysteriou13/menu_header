@@ -5,7 +5,7 @@ class sql{
     function __construct(){
 
         include("../../../wp-config.php");
-
+        
         define( 'db_menu', $table_prefix."menu");
 
         define( 'prefix', $table_prefix);
@@ -13,7 +13,10 @@ class sql{
          $this->create_table_menu();
 
          $this->select_menu();
-    }
+
+        $this->affiche_menu();
+
+        }
 
     function create_table_menu(){
 
@@ -59,9 +62,8 @@ global $wpdb;
 
   foreach ($liste_menu as $row) {
 
-  $page = "./admin.php?page=menu-gestion&menu=".$row->name;
 
- echo "<div><a href ='".$row->link."'>".$row->name."</a></div>";
+ echo "<div><a href ='".$row->name."'>".$row->link."</a></div>";
 
   }
 
