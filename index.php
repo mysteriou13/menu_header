@@ -5,14 +5,14 @@
   
     <?php 
 
+$file =  dirname(__FILE__);
+    $pieces = explode("wp-content", $file);
 
-  include("/var/www/html/site_wordpress/wordpress/wp-content/plugins/menu_header/php/sql.php");
+
+include($pieces[0].'wp-content/plugins/menu_header/php/sql.php');
+
    
   $t = new sql();
-
- 
-
-
 
     ?>
 

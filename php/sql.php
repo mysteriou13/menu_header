@@ -4,7 +4,12 @@ class sql{
 
     function __construct(){
 
-        include("../../../wp-config.php");
+
+      $file =  dirname(__FILE__);
+
+        $pieces = explode("wp-content", $file);
+      
+        include($pieces[0]."/wp-config.php");
         
         define( 'db_menu', $table_prefix."menu");
 
@@ -12,7 +17,9 @@ class sql{
 
          $this->create_table_menu();
 
+         if(current_user_can('administrator')) {
          $this->select_menu();
+         }
 
         $this->affiche_menu();
 
