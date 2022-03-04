@@ -104,6 +104,33 @@ global $wpdb;
     
     }
 
+
+    function select_page($type,$data,$id){
+
+      global $wpdb;
+      
+    
+       $post =   prefix."posts";
+      
+       $liste_page = $wpdb->get_results("SELECT $data FROM  $post WHERE   id = $id ");
+      
+      $tab = [];
+      
+      foreach ($liste_page as $row) {
+      
+        
+      $a = $row->$data;
+      
+      array_push($tab, $a);
+      
+      
+      }
+      
+      return $tab;
+      
+      }
+
+
       function select_menu(){
 
         $listepage = $this->liste_page("page","post_title");
