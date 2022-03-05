@@ -15,16 +15,24 @@ class sql{
 
         define( 'prefix', $table_prefix);
 
-         $this->create_table_menu();
-
-         if(current_user_can('administrator')) {
-         $this->select_menu();
-         }
-
-        $this->affiche_menu();
+       
 
         }
 
+
+        function start_menu() {
+          
+          $this->create_table_menu();
+
+          if(current_user_can('administrator')) {
+          $this->select_menu();
+          }
+ 
+         $this->affiche_menu();
+
+        }
+
+        
     function create_table_menu(){
 
 
