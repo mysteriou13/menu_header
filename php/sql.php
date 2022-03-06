@@ -80,6 +80,8 @@ function affiche_menu(){
 
 global $wpdb;
 
+ $logout = "/?action=logout";
+
 
   $liste_menu = $wpdb->get_results("SELECT * FROM ".db_menu);
 
@@ -93,6 +95,21 @@ global $wpdb;
   }
 
   echo "</div>";
+
+  if(isset($_GET['action']) == 'logout' ){
+
+    wp_logout();
+
+    header('Location: /');
+
+  }
+
+  if(is_user_logged_in()){
+
+echo "<a href='.$logout.'>Logout</a>";
+
+
+  }
 
   }
 

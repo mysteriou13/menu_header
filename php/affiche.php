@@ -1,3 +1,4 @@
+
 <?php 
 
 
@@ -18,6 +19,8 @@ class afficher extends sql{
          print_r($page[0]);
        
          echo "</div>";
+
+       
     }
 
 }
