@@ -20,13 +20,23 @@ class sql{
         }
 
 
-        function start_menu() {
-          
-          $this->create_table_menu();
 
-          if(current_user_can('administrator')) {
-          $this->select_menu();
-          }
+        function is_site_admin(){
+          return in_array('administrator',  wp_get_current_user()->roles);
+
+       
+        }
+        
+        
+        
+      
+        function start_menu() {
+        
+          if ($this->is_site_admin() == 1) {
+        
+            $this->select_menu();
+          
+        }
  
          $this->affiche_menu();
 
